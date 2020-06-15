@@ -44,13 +44,6 @@ class StockTable extends Component {
     }
   };
 
-  pasteAsPlainText = (event) => {
-    event.preventDefault();
-
-    const text = event.clipboardData.getData("text/plain");
-    document.execCommand("insertHTML", false, text);
-  };
-
   handleChange = (index, dataType, value) => {
     const { updateTableCell } = this.props;
     updateTableCell(index, dataType, value);
@@ -105,7 +98,6 @@ class StockTable extends Component {
                       data-column='item'
                       className='content-editable'
                       onKeyPress={this.handleKeyPress}
-                      onPaste={this.pasteAsPlainText}
                       onChange={(event) =>
                         this.handleChange(
                           index,
